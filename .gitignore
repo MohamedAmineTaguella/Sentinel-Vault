@@ -1,0 +1,14 @@
+node_modules/
+dist/
+release/
+resources/
+*.exe
+*.dll
+*.pak
+*.bin
+*.ico
+*.icns
+*.blockmap
+*.yml
+.DS_Store
+Thumbs.db
