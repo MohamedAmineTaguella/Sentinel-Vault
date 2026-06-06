@@ -56,57 +56,86 @@
 
 ---
 
-## Tech Stack
+## How to Download and Run
 
-| Layer | Technology |
-|-------|-----------|
-| **Desktop Shell** | Electron 28 |
-| **UI Framework** | React 18 with TypeScript |
-| **Styling** | Tailwind CSS 3 |
-| **Build Tool** | Vite 5 |
-| **Encryption** | Node.js `crypto` (AES-256-GCM, PBKDF2, SHA-256) |
-| **Packaging** | electron-builder (NSIS for Windows) |
+Follow these steps exactly in order.
 
----
+### Step 1: Install Prerequisites
 
-## Getting Started
+Install **Node.js** (version 18 or later):
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) >= 18
-- npm or yarn
+- Download from [https://nodejs.org/](https://nodejs.org/)
+- Run the installer (all default options are fine)
+- **Restart your computer** after installing
 
-### Install
+To verify it worked, open **Command Prompt** (or PowerShell) and run:
 
 ```bash
-git clone https://github.com/MohamedAmineTaguella/sentinel-vault.git
-cd sentinel-vault
+node --version
+npm --version
+```
+
+Both should show version numbers (e.g., `v18.x.x` and `10.x.x`). If you see errors, restart your computer and try again.
+
+Optionally, install **Git** from [https://git-scm.com/](https://git-scm.com/) if you want to clone the repo.
+
+### Step 2: Download the Project
+
+**Option A — Download ZIP (easier):**
+
+1. Go to [https://github.com/MohamedAmineTaguella/Sentinel-Vault](https://github.com/MohamedAmineTaguella/Sentinel-Vault)
+2. Click the green **Code** button
+3. Click **Download ZIP**
+4. Extract the ZIP to a folder (e.g., `C:\Users\YourName\Desktop\Sentinel-Vault`)
+
+**Option B — Clone with Git (if you installed Git):**
+
+```bash
+git clone https://github.com/MohamedAmineTaguella/Sentinel-Vault.git
+cd Sentinel-Vault
+```
+
+### Step 3: Install Dependencies
+
+Open **Command Prompt** (or PowerShell) inside the project folder and run:
+
+```bash
 npm install
 ```
 
-### Development
+This will download all required packages. It may take 1–2 minutes. Wait for it to finish — you'll see the prompt return with no errors.
 
-Run the app with hot-reload:
+If you see warnings about vulnerabilities, that's normal. Ignore them.
+
+> **Note:** The `node_modules/` folder (created here) and `dist/` / `release/` folders do NOT exist on GitHub. They are generated when you run the commands below. This keeps the download small.
+
+### Step 4: Run the App (Development Mode)
 
 ```bash
 npm run dev
 ```
 
-This starts the Vite dev server on `http://localhost:5173` and launches the Electron window pointing to it.
+A Vite dev server will start, then an **Electron window** will open automatically showing Sentinel Vault.
 
-### Production Build
+- Use `Ctrl+C` in the terminal to stop the app
+- Changes you make to the code will auto-reload the window
+
+### Step 5: Build a Production Installer (Optional)
+
+If you want to generate an `.exe` installer:
 
 ```bash
-# TypeScript check
+# Step 5a: Check for TypeScript errors
 npm run typecheck
 
-# Build frontend + run electron
-npm run start
+# Step 5b: Build the frontend
+npm run build
 
-# Package into installer
+# Step 5c: Package into installer
 npm run dist
 ```
 
-The installer will be output to the `release/` directory.
+This creates `Sentinel Vault Setup 2.0.0.exe` inside the `release/` folder. Run that file to install Sentinel Vault like a normal Windows program.
 
 ---
 
@@ -151,8 +180,9 @@ sentinel-vault/
 │   │   └── totp.ts               # TOTP code generation
 │   ├── types.ts                  # Shared TypeScript types
 │   └── App.tsx                   # Root component
-├── dist/                         # Vite build output
-├── release/                      # Electron-builder output
+├── dist/                         # Created by npm run build
+├── release/                      # Created by npm run dist
+├── node_modules/                 # Created by npm install
 ├── package.json
 └── README.md
 ```
@@ -169,26 +199,6 @@ sentinel-vault/
 - **Brute-force protection:** 5 failed login attempts trigger a 15-minute lockout.
 
 > **Note:** Sentinel Vault is self-contained and offline. There is no cloud sync, remote access, or telemetry. Backup your vault via the export feature.
-
----
-
-## Building from Source
-
-```bash
-# Install dependencies
-npm install
-
-# Type-check
-npm run typecheck
-
-# Build frontend assets
-npm run build
-
-# Package installer
-npm run dist
-```
-
-The packaged installer will be in `release/Sentinel Vault Setup 2.0.0.exe`.
 
 ---
 
