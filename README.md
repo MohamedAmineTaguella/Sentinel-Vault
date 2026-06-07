@@ -17,6 +17,10 @@
 
 ## Overview
 <img width="1279" height="793" alt="image" src="https://github.com/user-attachments/assets/e5369f12-8fc2-4925-a0be-d1ab262bb4c9" />
+<img width="1280" height="795" alt="image" src="https://github.com/user-attachments/assets/fc892995-9596-4a8a-8660-a41f0d3f2247" />
+<img width="640" height="400" alt="image" src="https://github.com/user-attachments/assets/47fc72f7-38a6-4883-9f68-27cd26d6b42f" />
+<img width="1280" height="803" alt="image" src="https://github.com/user-attachments/assets/db11121a-ca90-4d6f-a01a-668f275996f5" />
+
 
 **Sentinel Vault** is a feature-rich, offline-first password manager built with Electron and React. All sensitive data is encrypted at rest using **AES-256-GCM** with key derivation via **PBKDF2-HMAC-SHA256**. The application runs entirely locally — no cloud, no telemetry, no accounts required.
 
